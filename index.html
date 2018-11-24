@@ -1,0 +1,87 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Регулярные выражения</title>
+
+</head>
+
+<body>
+	<h1>Домашнее задание</h1>
+	<p>1. У вас есть большой текст, в котором для обозначения диалогов используются одинарные кавычки. Придумать шаблон, который меняет одинарные кавычки на двойные.<br><br>
+		<!--одиночные не получилось, так как он открывает выражение и разваливает его -->
+		<script>
+			var b = '"Семен" решил, что в "бараний рог" - это буквально';
+		str = '"Семен" решил, что в "бараний рог" - это буквально';
+		str1 = str.replace(/"/g, "");
+		console.log("Решение задания 1");
+		console.log("Исходный текст:");
+		console.log(b);
+		console.log("Результат:");
+		console.log(str1);
+		alert("Решение 1 задания" + "\n\rИсходный текст: " + b + "\n\rРешение: " + str1);
+
+	</script><br><br>
+		2. Улучшить шаблон таким образом, чтобы конструкции типа aren’t не меняли одинарную кавычку на двойную.<br><br>
+		<script>
+			str = `'I don't know. I love my kids'`;
+		//str1 = str.replace(/(?!s'|[a-z]'[a-z])([\s\S])'|^'/g);
+		str1 = str.replace(/(?!s'|[a-z]'[a-z])([\s\S])'|^'/g, '$1"')
+		console.log("Решение задания 2");
+		console.log("Исходный текст:");
+		console.log(str);
+		console.log("Результат:");
+		console.log(str1);
+		alert("Решение 2 задания" + "\n\rИсходный текст: " + str + "\n\rРешение: " + str1);
+
+	</script>
+		3. Создать форму обратной связи с полями: Имя, Телефон, e-mail, текст, кнопка «Отправить».<br>
+		** - При нажатии на кнопку «Отправить» произвести валидацию полей следующим образом:
+	</p>
+
+	<p>- Имя содержит только буквы;</p>
+	<p>** - E-mail выглядит как mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru**</p>
+	<p>** - Текст произвольный;**<br>
+		** - В случае не прохождения валидации одним из полей необходимо выделять это поле красной рамкой и сообщать пользователю об ошибке.**</p><br><br>
+
+	<h3>Форма обратной связи</h3>
+	<form id="feedback" name="feedback" method="POST">
+		<ul class="form-list form-list_contact">
+			<li style="list-style-type: none;">
+				<label>Ваше имя:</label>
+				<div>
+					<input class="form-control" type="text" name="username" maxlength="30" value="">
+				</div>
+				<span class="error"></span>
+			</li>
+			<li style="list-style-type: none;">
+				<label>Электронная почта:</label>
+				<div>
+					<input class="form-control" type="text" name="usermail" maxlength="50" value="">
+				</div>
+				<span class="error"></span>
+			</li>
+			<li style="list-style-type: none;">
+				<label>Текст сообщения:</label>
+				<div>
+					<textarea class="form-control" name="textmess"></textarea>
+				</div>
+				<span class="error"></span>
+			</li>
+			<li style="list-style-type: none;">
+				<label></label>
+				<div>
+					<button id="send_mess" type="submit">отправить сообщение</button>
+				</div>
+			</li>
+		</ul>
+	</form>
+
+	<script src="main.js"></script>
+
+</body>
+
+</html>
